@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+import HomeScreen from "./screens/HomeScreen";
+
+import Navbar from "./components/Navbar";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ClientDashboard from "./screens/ClientDashboard";
+import NewTicket from "./screens/NewTicket";
+import AdminDashboard from "./screens/AdminDashboard";
+
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/ticket/new" element={<NewTicket />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/dashboard" element={<ClientDashboard />} />
+        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/" element={<HomeScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
