@@ -18,6 +18,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <div className="bg-yellow-400 hidden"></div>
+      <div className="bg-green-400 hidden"></div>
       <Routes>
         <Route path="/ticket/new" element={<NewTicket />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />

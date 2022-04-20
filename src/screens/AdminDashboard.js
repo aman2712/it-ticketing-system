@@ -95,21 +95,21 @@ const AdminDashboard = () => {
         <div className="w-2/4 mt-8 grid grid-cols-3 gap-2">
           {tickets?.map((ticket) => (
             <div
-              className={`border border-solid mt-4 border-${ticket?.status === "IN PROGRESS" ? "yellow" : "green"
+              className={`border border-solid mt-4 border-${ticket.status === "IN PROGRESS" ? "yellow" : "green"
                 }-400 rounded-md cursor-pointer`}
               key={ticket.shortId}
               onClick={() => handleModalOpen(ticket)}
             >
               <p className="tracking-tight font-bold text-2xl text-center mt-8">
-                #{ticket?.shortId}
+                #{ticket.shortId}
               </p>
-              <p className="mb-6 text-center">User: {ticket?.name}</p>
+              <p className="mb-6 text-center">User: {ticket.name}</p>
               <div
-                className={`bg-${ticket?.status === "IN PROGRESS" ? "yellow" : "green"
+                className={`bg-${ticket.status === "IN PROGRESS" ? "yellow" : "green"
                   }-400 py-1`}
               >
                 <p className="text-sm text-center text-uppercase">
-                  {ticket?.status}
+                  {ticket.status}
                 </p>
               </div>
             </div>
