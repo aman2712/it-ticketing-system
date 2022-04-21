@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
+import { userLoginReducer, userRegisterReducer, userRegisterByAdminReducer } from "./reducers/userReducers";
 
 import {
   getTicketsUserReducer,
@@ -14,7 +14,8 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   getTicketsUser: getTicketsUserReducer,
   ticketCreate: ticketCreateReducer,
-  getTickets: getTicketsReducer
+  getTickets: getTicketsReducer,
+  userRegisterByAdmin: userRegisterByAdminReducer
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

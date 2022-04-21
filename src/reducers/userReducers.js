@@ -6,6 +6,10 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAIL_BY_ADMIN,
+  USER_REGISTER_REQUEST_BY_ADMIN,
+  USER_REGISTER_SUCCESS_BY_ADMIN,
+  NULLIFY_USER_BY_ADMIN
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -37,3 +41,18 @@ export const userRegisterReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const userRegisterByAdminReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_REGISTER_REQUEST_BY_ADMIN:
+      return { loading: true }
+    case USER_REGISTER_SUCCESS_BY_ADMIN:
+      return { loading: false, userCreated: true }
+    case USER_REGISTER_FAIL_BY_ADMIN:
+      return { loading: false, error: action.payload }
+    case NULLIFY_USER_BY_ADMIN:
+      return { userCreated: false }
+    default:
+      return state
+  }
+}

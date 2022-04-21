@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getAllTickets } from "../actions/ticketActions";
 import Alert from "../components/Alert";
 import Modal from "react-modal";
@@ -80,13 +80,18 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col relative">
       <h1 className="tracking-tight font-black mt-8 text-4xl">
         Admin Dashboard
       </h1>
       <p className="tracking-tight font-semibold mt-2 text-xl">
         All issued tickets
       </p>
+      <Link to='/new-user-admin'>
+        <button className="bg-slate-500 rounded px-4 py-1 block mx-auto mt-3 flex items-center text-white hover:bg-slate-600 absolute top-1 right-5">
+          Create a User
+        </button>
+      </Link>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (

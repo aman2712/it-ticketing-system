@@ -9,6 +9,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ClientDashboard from "./screens/ClientDashboard";
 import NewTicket from "./screens/NewTicket";
 import AdminDashboard from "./screens/AdminDashboard";
+import NewUserByAdmin from "./screens/NewUserByAdmin";
 
 import Modal from 'react-modal';
 
@@ -21,6 +22,7 @@ const App = () => {
       <div className="bg-yellow-400 hidden"></div>
       <div className="bg-green-400 hidden"></div>
       <Routes>
+        <Route path="/new-user-admin" element={<NewUserByAdmin />} />
         <Route path="/ticket/new" element={<NewTicket />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/dashboard" element={<ClientDashboard />} />
